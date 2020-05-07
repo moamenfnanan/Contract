@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   createAppContainer,
   createStackNavigator,
@@ -20,6 +20,27 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import CategoriesReducer from './src/store/reducers/Categories'
 import { enableScreens } from 'react-native-screens';
+// import * as Font from 'expo-font';
+// import {AppLoading} from 'expo'
+// const [dataLoaded, setDataLoaded] = useState(false);
+
+// const fetchFonts = () => {
+//   return Font.loadAsync({
+//     'open-sans': require('./assets/Cairo-SemiBold.ttf'),
+//     'open-sans-bold': require('./assets/Cairo-Regular.ttf'),
+//     // 'Barlow-ExtraLight': require('./assets/fonts/Barlow-ExtraLight.ttf')
+//   });
+// };
+// if (!dataLoaded) {
+//   return (
+//     <AppLoading
+//       startAsync={fetchFonts}
+//       onFinish={() => setDataLoaded(true)}
+//       onError={err => console.log(err)}
+//     />
+//   );
+// }
+
 const rootReducer = combineReducers({
   Category: CategoriesReducer
 });

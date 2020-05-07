@@ -5,8 +5,29 @@ import { FontAwesome } from '@expo/vector-icons'
 import Header from '../../component/Header'
 import { FakeData } from '../../fakeData/FakeData'
 import SearchBar from '../../component/SearchBar'
+import * as Font from 'expo-font';
+import { AppLoading } from 'expo'
 const Parts = ({ navigation }) => {
   const [search, updateSearch] = useState('')
+
+  const [dataLoaded, setDataLoaded] = useState(false);
+
+  const fetchFonts = () => {
+    return Font.loadAsync({
+      'cairo': require('../../../assets/Cairo-SemiBold.ttf'),
+      'cairo-bold': require('../../../assets/Cairo-Regular.ttf'),
+      'Cairo-ExtraLight': require('../../../assets/Cairo-ExtraLight.ttf')
+    });
+  };
+  if (!dataLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setDataLoaded(true)}
+        onError={err => console.log(err)}
+      />
+    );
+  }
   return (
     <View style={styles.container}>
       <Header title="المقاولات" />
@@ -14,7 +35,7 @@ const Parts = ({ navigation }) => {
         search={search}
         updateSearch={updateSearch}
       />
-      <Text h4 style={{ paddingRight: 15 }} >الأقسام</Text>
+      <Text style={{ paddingRight: 15,fontSize:22, fontFamily: 'cairo' }} >الأقسام</Text>
       <FlatList
         keyExtractor={(item) => item.id}
         data={FakeData}
@@ -26,7 +47,7 @@ const Parts = ({ navigation }) => {
             }>
               <View style={styles.contaier1}>
                 <Image source={item.icon} style={{ height: 50, width: 50, marginLeft: 45 }} />
-                <Text style={{ textAlign: 'center', fontSize: 16, paddingHorizontal: 15 }}>{item.title}</Text>
+                <Text style={{ textAlign: 'center', fontSize: 16, paddingHorizontal: 15, fontFamily: 'cairo' }}>{item.title}</Text>
               </View>
             </TouchableOpacity>
           )

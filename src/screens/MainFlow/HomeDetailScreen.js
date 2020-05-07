@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback} from "react";
 import { Text } from "react-native-elements";
 import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Ionicons, FontAwesome } from '@expo/vector-icons'

@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, Image } from "react-native-elements";
 import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 import Header from '../../component/Header'
 import { Ionicons } from '@expo/vector-icons'
 import { FakeData } from '../../fakeData/FakeData'
+import * as Font from 'expo-font';
+import { AppLoading } from 'expo'
+
 const HomeScreen = ({ navigation }) => {
+
+  const [dataLoaded, setDataLoaded] = useState(false);
+
+  const fetchFonts = () => {
+    return Font.loadAsync({
+      'cairo': require('../../../assets/Cairo-SemiBold.ttf'),
+      'cairo-bold': require('../../../assets/Cairo-Regular.ttf'),
+      // 'Barlow-ExtraLight': require('./assets/fonts/Barlow-ExtraLight.ttf')
+    });
+  };
+  if (!dataLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setDataLoaded(true)}
+        onError={err => console.log(err)}
+      />
+    );
+  }
+
   return (
     <View style={styles.container}>
       <Header title="الفهرس" />
@@ -20,7 +43,7 @@ const HomeScreen = ({ navigation }) => {
                 <View style={styles.icon}>
                   <Image source={item.icon} style={{ height: 50, width: 50 }} />
                 </View>
-                <Text style={{ textAlign: 'center', fontSize: 16 }}>{item.seasonNum + ': ' + item.subTitle}</Text>
+                <Text style={{ textAlign: 'center', fontSize: 16, fontFamily: 'cairo-bold' }}>{item.seasonNum + ': ' + item.subTitle}</Text>
               </View>
             </TouchableOpacity>
           )
