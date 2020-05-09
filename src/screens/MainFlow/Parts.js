@@ -5,29 +5,9 @@ import { FontAwesome } from '@expo/vector-icons'
 import Header from '../../component/Header'
 import { FakeData } from '../../fakeData/FakeData'
 import SearchBar from '../../component/SearchBar'
-import * as Font from 'expo-font';
-import { AppLoading } from 'expo'
 const Parts = ({ navigation }) => {
   const [search, updateSearch] = useState('')
 
-  const [dataLoaded, setDataLoaded] = useState(false);
-
-  const fetchFonts = () => {
-    return Font.loadAsync({
-      'cairo': require('../../../assets/Cairo-SemiBold.ttf'),
-      'cairo-bold': require('../../../assets/Cairo-Regular.ttf'),
-      'Cairo-ExtraLight': require('../../../assets/Cairo-ExtraLight.ttf')
-    });
-  };
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setDataLoaded(true)}
-        onError={err => console.log(err)}
-      />
-    );
-  }
   return (
     <View style={styles.container}>
       <Header title="المقاولات" />

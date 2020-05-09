@@ -20,26 +20,19 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import CategoriesReducer from './src/store/reducers/Categories'
 import { enableScreens } from 'react-native-screens';
-// import * as Font from 'expo-font';
-// import {AppLoading} from 'expo'
-// const [dataLoaded, setDataLoaded] = useState(false);
+import * as Font from 'expo-font';
+import {AppLoading} from 'expo'
 
-// const fetchFonts = () => {
-//   return Font.loadAsync({
-//     'open-sans': require('./assets/Cairo-SemiBold.ttf'),
-//     'open-sans-bold': require('./assets/Cairo-Regular.ttf'),
-//     // 'Barlow-ExtraLight': require('./assets/fonts/Barlow-ExtraLight.ttf')
-//   });
-// };
-// if (!dataLoaded) {
-//   return (
-//     <AppLoading
-//       startAsync={fetchFonts}
-//       onFinish={() => setDataLoaded(true)}
-//       onError={err => console.log(err)}
-//     />
-//   );
-// }
+const fetchFonts = () => {
+  return Font.loadAsync({
+    'cairo': require('./assets/Cairo-SemiBold.ttf'),
+    'cairo-bold': require('./assets/Cairo-Regular.ttf'),
+    'Contracting':require('./assets/Group_1.png'),
+    'Contracting_committee':require('./assets/Group_1.png'),
+    'Al_Sharqia_Chamber':require('./assets/Group_1.png'),
+  });
+  // 'Contracting':require('./assets/Group_1.png')
+};
 
 const rootReducer = combineReducers({
   Category: CategoriesReducer
@@ -182,6 +175,17 @@ const All = createSwitchNavigator({
 })
 const App = createAppContainer(All)
 export default () => {
+  const [dataLoaded, setDataLoaded] = useState(false);
+
+  if (!dataLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setDataLoaded(true)}
+        onError={err => console.log(err)}
+      />
+    );
+  }
   return (
     <Provider store={store}>
       <App />

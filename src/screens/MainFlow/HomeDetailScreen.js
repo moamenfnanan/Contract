@@ -12,10 +12,6 @@ const Details = ({ navigation }) => {
 
   const Item = FakeData.find(i => i.id === ID);
 
-  const itemRedux = useSelector(state => state.Category.fake);
-
-  const ItemCategory = itemRedux.find(item => item.id === ID);
-
   const dispatch = useDispatch();
 
   const currentItemIsFavorite = useSelector(state =>
@@ -35,16 +31,14 @@ const Details = ({ navigation }) => {
     navigation.setParams({ isFav: currentItemIsFavorite });
   }, [currentItemIsFavorite]);
 
-  const FavRedux = useSelector(state => state.Category.fovariteArr);
-
   const faveHandler = navigation.getParam('faveHand');
   const isFavorite = navigation.getParam('isFav');
   return (
     <ScrollView style={styles.container}>
       <View style={{ height: "20%", width: "100%", backgroundColor: '#7380A1' }}>
-        <Text style={{ color: '#fff', fontSize: 22, textAlign: 'center', marginTop: 35 }}>التفاصيل</Text>
+        <Text style={{ color: '#fff', fontSize: 22, textAlign: 'center', marginTop: 35,fontFamily:'cairo-bold' }}>التفاصيل</Text>
         <TouchableOpacity onPress={() => navigation.pop()} style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: -25, paddingRight: 10 }}>
-          <Text style={{ color: '#fff', paddingRight: 5, fontSize: 18, marginTop: -2 }}>رجوع</Text>
+          <Text style={{ color: '#fff', paddingRight: 5, fontSize: 18, marginTop: -2,fontFamily:'cairo-bold' }}>رجوع</Text>
           <Ionicons name="ios-arrow-forward" size={24} color="#fff" />
         </TouchableOpacity>
       </View>
@@ -55,10 +49,10 @@ const Details = ({ navigation }) => {
           color="red"
         />
       </TouchableOpacity>
-      <Text style={{ textAlign: "center", fontSize: 28, fontWeight: 'bold' }}>{Item.seasonNum + ': ' + Item.subTitle}</Text>
-      <Text style={{ fontSize: 18, paddingRight: 10, fontWeight: 'bold', color: '#2D2D2D' }}>{Item.seasonNum}</Text>
-      <Text style={{ fontSize: 18, paddingRight: 10, fontWeight: 'bold', color: '#2D2D2D' }}>{Item.subTitle}</Text>
-      <Text style={{ fontSize: 16, paddingRight: 10, height: "200%", paddingVertical: 35, color: '#2D2D2D' }}>{Item.content}</Text>
+      <Text style={{ textAlign: "center", fontSize: 28,fontFamily:'cairo-bold' }}>{Item.seasonNum + ': ' + Item.subTitle}</Text>
+      <Text style={{ fontSize: 18, paddingRight: 10, color: '#2D2D2D',fontFamily:'cairo-bold' }}>{Item.seasonNum}</Text>
+      <Text style={{ fontSize: 18, paddingRight: 10, color: '#2D2D2D',fontFamily:'cairo-bold' }}>{Item.subTitle}</Text>
+      <Text style={{ fontSize: 16, paddingRight: 10, height: "200%", paddingVertical: 35, color: '#2D2D2D',fontFamily:'cairo-bold' }}>{Item.content}</Text>
     </ScrollView>
   );
 };

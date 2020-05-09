@@ -19,9 +19,9 @@ const Favorites = () => {
                         <TouchableOpacity style={styles.List}>
                             <View style={styles.contaier1}>
                                 <View style={styles.icon}>
-                                    <Image source={item.icon} style={{ height: 60, width: 60,justifyContent:'center',marginBottom:5 }} />
+                                    <Image source={item.icon} style={{ height: 60, width: 60,marginBottom:5,marginLeft:15 }} />
                                 </View>
-                                <Text style={{ marginRight:85, fontSize: 16 }}>{item.seasonNum +': '+ item.subTitle}</Text>
+                                <Text style={{ marginRight:85, fontSize: 16,fontFamily:'cairo-bold' }}>{item.seasonNum +': '+ item.subTitle}</Text>
                             </View>
                         </TouchableOpacity>
                     )
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
         marginTop: 50,
-        marginHorizontal: 10,
+        marginHorizontal: 15,
         marginBottom: 20,
         backgroundColor:'#fff'
     },

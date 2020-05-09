@@ -4,29 +4,8 @@ import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 import Header from '../../component/Header'
 import { Ionicons } from '@expo/vector-icons'
 import { FakeData } from '../../fakeData/FakeData'
-import * as Font from 'expo-font';
-import { AppLoading } from 'expo'
 
 const HomeScreen = ({ navigation }) => {
-
-  const [dataLoaded, setDataLoaded] = useState(false);
-
-  const fetchFonts = () => {
-    return Font.loadAsync({
-      'cairo': require('../../../assets/Cairo-SemiBold.ttf'),
-      'cairo-bold': require('../../../assets/Cairo-Regular.ttf'),
-      // 'Barlow-ExtraLight': require('./assets/fonts/Barlow-ExtraLight.ttf')
-    });
-  };
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setDataLoaded(true)}
-        onError={err => console.log(err)}
-      />
-    );
-  }
 
   return (
     <View style={styles.container}>
