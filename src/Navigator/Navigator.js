@@ -16,13 +16,6 @@ import How_Us from '../screens/MainFlow/How_Us'
 import Call_Us from '../screens/MainFlow/Call_Us'
 import HomeDetailScreen from '../screens/MainFlow/HomeDetailScreen'
 import PartDetails from '../screens/MainFlow/PartDetails'
-// import { Provider } from 'react-redux';
-// import { createStore, combineReducers } from 'redux';
-// import CategoriesReducer from './src/store/reducers/Categories'
-// import { enableScreens } from 'react-native-screens';
-// import * as Font from 'expo-font';
-// import { Asset } from 'expo-asset';
-// import { AppLoading } from 'expo'
 
 const Homes = createStackNavigator({
     Home: {

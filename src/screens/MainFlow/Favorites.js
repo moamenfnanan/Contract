@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import {
     Text,
     Image
@@ -7,13 +7,15 @@ import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons'
 import Header from '../../component/Header'
 import { useSelector } from 'react-redux';
+import {Context as FavContext} from '../../Context/favoriteContext'
 const Favorites = () => {
-    const itemRedux = useSelector(state => state.Category.fovariteArr);
+    const { state} = useContext(FavContext);
+    
     return (
         <View style={styles.container}>
             <Header title="المفضلة" />
             <FlatList
-                data={itemRedux}
+                data={state.fovariteArr}
                 renderItem={({ item }) => {
                     return (
                         <TouchableOpacity style={styles.List}>
